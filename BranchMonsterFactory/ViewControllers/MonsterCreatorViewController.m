@@ -10,7 +10,7 @@
 #import "MonsterPreferences.h"
 #import "MonsterPartsFactory.h"
 #import "ImageCollectionViewCell.h"
-#import "Branch.h"
+#import <Branch/Branch.h>
 
 @interface MonsterCreatorViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -69,13 +69,33 @@ static CGFloat SIDE_SPACE = 7.0;
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolbar.items = [NSArray arrayWithObject:barButton];
     
-    // track that the user viewed the monster edit page
-    [[Branch getInstance] userCompletedAction:@"monster_edit"];
-    
     self.etxtName.inputAccessoryView = toolbar;
     [self.etxtName addTarget:self.etxtName
                       action:@selector(resignFirstResponder)
             forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+     // MARK: Daniel- Task 2a
+        // Branch content event
+//        BranchEvent *event = [BranchStandardEventViewItem ];
+
+        
+    //   MARK - DOC BUG doc bug = https://docs.branch.io/apps/v2event/#track-custom-events/ - https://docs.branch.io/apps/v2event/#track-custom-events
+
+        // Custom event
+    //    BranchEvent *event = [BranchEvent customEventWithName: @"customer_viewed_monster_edit_page"];
+    //    event.customData[@"Custom_Event_Property_Key1"] = @"Custom_Event_Property_val1";
+    //    event.customData[@"Custom_Event_Property_Key1"] = @"Custom_Event_Property_val1";
+    //    [event logEvent];
+    
+    
+    // MARK: Daniel- Task 2b
+    // login
+    [[Branch getInstance] setIdentity:@"daniel_user_id"];
+    [BranchEventRequest ]
+}
+
+- (void)monsterEdit {
+    NSLog(@"monster edit");
 }
 
 - (void)viewDidLayoutSubviews {

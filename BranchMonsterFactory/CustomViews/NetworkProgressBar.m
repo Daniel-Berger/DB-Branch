@@ -22,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.8]];
-        self.progBar = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        self.progBar = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
         CGPoint framePoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 80);
         self.progBar.center = framePoint;
         [self.progBar startAnimating];
