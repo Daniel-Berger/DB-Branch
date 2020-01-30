@@ -62,7 +62,7 @@
     // MARK: Daniel- Not sure if test key is being used.
     // if you are using the TEST key
     [Branch setUseTestBranchKey:YES];
-    // listener for Branch Deep Link data
+    
     [[Branch getInstance] initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary * _Nonnull params, NSError * _Nullable error) {
       // do stuff with deep link data (nav to page, display content, etc)
       NSLog(@"%@", params);

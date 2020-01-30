@@ -48,9 +48,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>branch_app_domain</key>
-	<string></string>
+	<string>https://danielberger.com/750766181148808059</string>
 	<key>branch_key</key>
-	<string></string>
+	<string>key_live_mmVVuNVXzcjA9w4xg5jjYpoexCn6EXTW</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

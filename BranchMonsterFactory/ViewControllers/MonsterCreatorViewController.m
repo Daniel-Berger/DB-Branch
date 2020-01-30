@@ -75,27 +75,16 @@ static CGFloat SIDE_SPACE = 7.0;
             forControlEvents:UIControlEventEditingDidEndOnExit];
     
      // MARK: Daniel- Task 2a
-        // Branch content event
-//        BranchEvent *event = [BranchStandardEventViewItem ];
-
+    [[Branch getInstance] userCompletedAction:@"monster_edit"];
         
     //   MARK - DOC BUG doc bug = https://docs.branch.io/apps/v2event/#track-custom-events/ - https://docs.branch.io/apps/v2event/#track-custom-events
 
         // Custom event
-    //    BranchEvent *event = [BranchEvent customEventWithName: @"customer_viewed_monster_edit_page"];
-    //    event.customData[@"Custom_Event_Property_Key1"] = @"Custom_Event_Property_val1";
-    //    event.customData[@"Custom_Event_Property_Key1"] = @"Custom_Event_Property_val1";
+    //    BranchEvent *event = [BranchEvent customEventWithName:@"User_Scanned_Item"]];
+    //    event.customData[@“Custom_Event_Property_Key1”] = @“Custom_Event_Property_val1";
+    //    event.customData[@“Custom_Event_Property_Key2”] = @“Custom_Event_Property_val2";
+    //    event.alias = "my custom alias";
     //    [event logEvent];
-    
-    
-    // MARK: Daniel- Task 2b
-    // login
-    [[Branch getInstance] setIdentity:@"daniel_user_id"];
-    [BranchEventRequest ]
-}
-
-- (void)monsterEdit {
-    NSLog(@"monster edit");
 }
 
 - (void)viewDidLayoutSubviews {

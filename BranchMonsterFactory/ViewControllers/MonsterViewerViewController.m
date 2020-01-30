@@ -79,10 +79,17 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     [self.view addSubview:self.progressBar];
     
     // #8 TODO: track that the user viewed the monster view page
+    // MARK: Daniel- Task 2b
+    [[Branch getInstance] userCompletedAction:@"monster_view" withState: self.monsterMetadata];
     
     // #9 TODO: load a URL just for display on the viewer page
-    self.urlTextView.text = @"";
-    [self.progressBar hide];
+    // MARK: Daniel- Task 2c
+    [[Branch getInstance] getShortURLWithParams:[self prepareBranchDict] andChannel:@"" andFeature:@"" andCallback:^(NSString * _Nullable url, NSError * _Nullable error) {
+        self.urlTextView.text = url;
+        self.progressBar.hide;
+    }];
+    
+
 }
      
      
@@ -171,7 +178,21 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     [self.view layoutSubviews];
 }
 
+
 - (IBAction)cmdMessageClick:(id)sender {
+    
+    // MARK: Daniel- Task 2d
+    [[Branch getInstance] getShortURLWithParams: self.prepareBranchDict andChannel:@"sms" andFeature:@"" andCallback:^(NSString * _Nullable url, NSError * _Nullable error) {
+        
+        // MARK: Daniel- Task 2e
+        UIViewController *smsVC = [[UIViewController alloc] init];
+        if (!error) {
+            self.urlTextView.text = url;
+            [self presentViewController:smsVC animated:true completion:nil];
+            [self.progressBar hide];
+        }
+    }];
+    
     // track that the user clicked the share via sms button and pass in the monster meta data
     
     if([MFMessageComposeViewController canSendText]){
@@ -190,9 +211,9 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
         smsViewController.body = [NSString stringWithFormat:@"Check out my Branchster named %@ at %@", self.monsterName, url];
         [self presentViewController:smsViewController animated:YES completion:nil];
     } else {
-//        UIAlertView *alert_Dialog = [[UIAlertView alloc] initWithTitle:@"No Message Support" message:@"This device does not support messaging" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        [alert_Dialog show];
-//        alert_Dialog = nil;
+        UIAlertView *alert_Dialog = [[UIAlertView alloc] initWithTitle:@"No Message Support" message:@"This device does not support messaging" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert_Dialog show];
+        alert_Dialog = nil;
         NSLog(@"This device does not support messaging");
     }
 
